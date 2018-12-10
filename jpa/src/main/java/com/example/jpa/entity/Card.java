@@ -7,6 +7,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.annotation.JSONField;
+
 @Entity
 @Table(name="t_card")
 public class Card  extends BaseEntity{
@@ -21,6 +24,7 @@ public class Card  extends BaseEntity{
 
 	@ManyToOne()
 	@JoinColumn(name="person_fk")
+	@JSONField(serialize=false)  
 	private Person person;
 	
 	public String getCardNumber() {
@@ -39,5 +43,8 @@ public class Card  extends BaseEntity{
 		this.person = person;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return JSON.toJSONString(this);
+	}
 }

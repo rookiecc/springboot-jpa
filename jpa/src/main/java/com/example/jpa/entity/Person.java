@@ -12,6 +12,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.cfg.JoinedSubclassFkSecondPass;
+
+import com.alibaba.fastjson.JSON;
+
 @Table(name = "t_person")
 @Entity
 public class Person extends BaseEntity {
@@ -81,5 +85,11 @@ public class Person extends BaseEntity {
 		this.cards = cards;
 	}
 
+	@Override
+	public String toString() {
+		return JSON.toJSONString(this);
+	}
+
+	
 	
 }

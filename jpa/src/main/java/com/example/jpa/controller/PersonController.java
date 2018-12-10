@@ -62,11 +62,22 @@ public class PersonController {
 		Person person =  personService.findByAge(p);
 		PersonVO vo = new PersonVO();
 		vo.setAge(person.getAge());
-		vo.setName(p.getName());
+		vo.setName(person.getName());
 		vo.setId(person.getId());
 		vo.setCreatTime(person.getCreateDate());
 		vo.setModifyTime(person.getUpdateDate());
 		return vo;
+	}
+	
+	
+	@RequestMapping(value="/findByID",method=RequestMethod.GET)
+	public Map<String,Object> findByID(Person p){
+		Person person = personService.findById(p.getId());
+		Map<String,Object> responseMsg = new HashMap<>();
+		responseMsg.put("code","200");
+		responseMsg.put("msg", "获取成功");
+		responseMsg.put("results", person);
+		return responseMsg;
 	}
 	
 	@RequestMapping(value="/findPersonBySQL",method=RequestMethod.GET)

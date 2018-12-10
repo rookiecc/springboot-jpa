@@ -8,6 +8,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import com.alibaba.fastjson.JSON;
+
 /**
  * 
  * 
@@ -43,4 +45,9 @@ public class Access extends BaseEntity {
 		this.accessName = accessName;
 	}
 
+	
+	@Override
+	public String toString() {
+		return JSON.toJSONString(this);
+	}
 }

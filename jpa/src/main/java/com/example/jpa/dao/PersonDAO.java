@@ -15,7 +15,7 @@ import com.example.jpa.entity.Person;
 public interface PersonDAO  extends CrudRepository<Person, Long>{
 
 	/**
-	* 根据年纪查询用户
+	* 根据年纪查询实例
 	* @param age
 	* @return
 	*/
@@ -29,6 +29,7 @@ public interface PersonDAO  extends CrudRepository<Person, Long>{
 	* @return
 	*/
 	Person findByNameAndAge(String name, Integer age);
+	
 	
 	
 	
