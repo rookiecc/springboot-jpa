@@ -13,7 +13,6 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import com.google.gson.Gson;
 
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
@@ -26,7 +25,6 @@ public class BaseEntity implements Serializable {
 	 */
 	private static final long serialVersionUID = -4584877891314805066L;
 
-	private static Gson gson = new Gson();
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
